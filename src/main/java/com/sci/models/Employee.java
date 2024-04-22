@@ -55,7 +55,6 @@ public class Employee implements Serializable {
     @OneToMany(fetch = FetchType.LAZY)
     @JoinColumns({
             @JoinColumn(name = "employee_id", insertable = false, updatable = false),
-//            @JoinColumn(name = "hire_date", referencedColumnName="start_date",insertable = false, updatable = false)
     })
     private List<JobHistory> histories;
 }
