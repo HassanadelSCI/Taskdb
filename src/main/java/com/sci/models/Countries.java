@@ -17,7 +17,7 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 @NoArgsConstructor
 @AllArgsConstructor
-public class COUNTRIES implements Serializable {
+public class Countries implements Serializable {
     private static final long serialVersionUID = -915428707036605461L;
     @Id
     @Column(name = "COUNTRY_ID")
@@ -29,6 +29,6 @@ public class COUNTRIES implements Serializable {
 
 
     @OneToMany(fetch = FetchType.LAZY)
-    @JoinColumn(name = "country_id",insertable = false,updatable = false)
+    @JoinColumn(name = "COUNTRY_ID", insertable = false, updatable = false)
     private List<Location> lacations;
 }

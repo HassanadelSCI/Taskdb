@@ -27,6 +27,6 @@ public class Regions implements Serializable {
     private String Region_Name;
 
     @OneToMany(fetch = FetchType.LAZY)
-    @JoinColumn(name = "region_id",insertable = false,updatable = false)
-    private List<COUNTRIES> countries;
+    @JoinColumn(name = "Region_ID", insertable = false, updatable = false)
+    private List<Countries> countries;
 }

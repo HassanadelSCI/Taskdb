@@ -53,8 +53,7 @@ public class Employee implements Serializable {
     private List<Employee> employee;
 
     @OneToMany(fetch = FetchType.LAZY)
-    @JoinColumns({
-            @JoinColumn(name = "employee_id", insertable = false, updatable = false),
+    @JoinColumns({@JoinColumn(name = "employee_id", insertable = false, updatable = false),
     })
     private List<JobHistory> histories;
 }

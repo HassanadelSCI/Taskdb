@@ -1,16 +1,16 @@
 package com.sci.dao;
 
-import com.sci.models.COUNTRIES;
+import com.sci.models.Countries;
 
 import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-public class DBCOUNTRIES {
-    public List<COUNTRIES> get() {
+public class DBCountries {
+    public List<Countries> get() {
         try (Session session = DBConfig.SESSION_FACTORY.openSession()) {
-            return session.createQuery("FROM COUNTRIES ").list();
+            return session.createQuery("FROM Countries ").list();
         } catch (Exception ex) {
             System.err.println(ex.getMessage());
         }
@@ -18,11 +18,11 @@ public class DBCOUNTRIES {
     }
 
 
-    public COUNTRIES get(String country_id) {
+    public Countries get(String country_id) {
 
         try (Session session = DBConfig.SESSION_FACTORY.openSession()) {
 
-            return session.get(COUNTRIES.class, country_id);
+            return session.get(Countries.class, country_id);
 
         } catch (Exception ex) {
             System.err.println(ex.getMessage());
@@ -31,7 +31,7 @@ public class DBCOUNTRIES {
         return null;
     }
 
-    public String insert(COUNTRIES country) {
+    public String insert(Countries country) {
 
         Transaction transaction = null;
         String CountryId = null;
@@ -54,7 +54,7 @@ public class DBCOUNTRIES {
         return CountryId;
     }
 
-    public void update(COUNTRIES country) {
+    public void update(Countries country) {
 
         Transaction transaction = null;
 
@@ -82,7 +82,7 @@ public class DBCOUNTRIES {
 
             transaction = session.beginTransaction();
 
-            COUNTRIES del_country = get(CountryId);
+            Countries del_country = get(CountryId);
 
             session.delete(del_country);
 
